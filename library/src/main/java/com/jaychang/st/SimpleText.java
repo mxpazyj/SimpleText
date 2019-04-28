@@ -115,6 +115,13 @@ public class SimpleText extends SpannableString {
     return this;
   }
 
+  public SimpleText size(int size, boolean dip) {
+    for (Range range : rangeList) {
+      setSpan(new AbsoluteSizeSpan(size, dip), range.from, range.to, SPAN_MODE);
+    }
+    return this;
+  }
+
   public SimpleText scaleSize(int proportion) {
     for (Range range : rangeList) {
       setSpan(new RelativeSizeSpan(proportion), range.from, range.to, SPAN_MODE);
